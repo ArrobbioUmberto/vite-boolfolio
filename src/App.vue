@@ -1,5 +1,4 @@
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Project from './components/Project.vue';
 export default {
   components: {
