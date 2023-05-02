@@ -30,11 +30,14 @@ export default {
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Cliente: {{ project.client }}</li>
-            <li class="list-group-item">URL: {{ project.url }}</li>
-            <li class="list-group-item">Tecnologie: <span v-for="item in project.technologies" :key="item.id">{{
-                item.name ?
-                item.name : 'No' }},</span> </li>
-            <li class="list-group-item" v-if="project.type !== null"> Tipologia: {{ project.type.name }} </li>
+            <li class="list-group-item ">URL: {{ project.url }}</li>
+            <li class="list-group-item">Tecnologie: <span class="badge text-bg-primary p-2 m-2"
+                    v-for="item in project.technologies" :key="item.id">{{
+                        item.name ?
+                        item.name : 'No' }},</span> </li>
+            <li class="list-group-item" v-if="project.type !== null"> Tipologia: <span class="badge text-bg-secondary">{{
+                project.type.name
+            }}</span> </li>
             <li class="list-group-item" v-else="project.type == null"> Tipologia: Nessuna</li>
         </ul>
     </div>
