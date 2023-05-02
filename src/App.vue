@@ -8,9 +8,9 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container p-2">
 
-    <h1>ciao</h1>
+    <h1>PROGETTI</h1>
     <Project></Project>
   </div>
 </template>
