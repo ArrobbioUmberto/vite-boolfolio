@@ -28,7 +28,7 @@ export default {
 }
 </script>
 <template>
-    <div class="container d-flex">
+    <div class="container d-flex flex-wrap justify-content-between">
         <ProjectCard v-for="project in projects" :key="project.id" :project="project"></ProjectCard>
     </div>
 </template>
