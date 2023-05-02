@@ -6,27 +6,37 @@ export default {
         project: {
             type: Object,
             required: true
+        },
+        technologies: {
+            type: Array,
+            required: false
+        },
+        type: {
+            type: String,
+            required: false
         }
+    },
+    mounted() {
+        console.log(this.project.technologies);
     }
 
 }
 </script>
 <template>
-    <div class="card" style="width: 18rem;">
+    <div class="card col-3 m-3 ">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
+            <h5 class="card-title">Titolo: {{ project.title }}</h5>
+            <p class="card-text">Descrizione: {{ project.description }}</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">Cliente: {{ project.client }}</li>
+            <li class="list-group-item">URL: {{ project.url }}</li>
+            <li class="list-group-item">Tecnologie: <span v-for="item in project.technologies" :key="item.id">{{
+                item.name ?
+                item.name : 'No' }},</span> </li>
+            <li class="list-group-item" v-if="project.type !== null"> Tipologia: {{ project.type.name }} </li>
+            <li class="list-group-item" v-else="project.type == null"> Tipologia: Nessuna</li>
         </ul>
-        <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
     </div>
 </template>
 <style scoped></style>
