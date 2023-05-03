@@ -17,7 +17,7 @@ export default {
         }
     },
     mounted() {
-        console.log(this.project.technologies);
+        // console.log(this.project.technologies);
     }
 
 }
