@@ -1,17 +1,21 @@
 <script>
+import Default from '../layouts/Default.vue';
 import Project from '../components/Project.vue';
 export default {
     components: {
-        Project
+        Project,
+        Default
     }
 }
 </script>
 <template>
-    <div>
-        <div class="container">
-            <h1>PORTFOLIO</h1>
-            <Project></Project>
+    <Default>
+        <div>
+            <div class="container">
+                <h1>PORTFOLIO</h1>
+                <Project></Project>
+            </div>
         </div>
-    </div>
+    </Default>
 </template>
 <style></style>

@@ -10,13 +10,7 @@ export default {
 </script>
 
 <template>
-  <NavBar></NavBar>
-  <main>
-
-    <router-view></router-view>
-
-  </main>
-  <footer>FOOTER</footer>
+  <router-view></router-view>
 </template>
 
 <style scoped></style>
