@@ -6,7 +6,7 @@ export default {
 <template>
     <div>
         <div class="container">
-            <h1>ABOUTUS</h1>
+            <h1>ABOUT-US</h1>
         </div>
     </div>
 </template>
