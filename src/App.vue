@@ -1,18 +1,22 @@
 <script>
-import Project from './components/Project.vue';
+import NavBar from './components/NavBar.vue';
+
+// import Project from './components/Project.vue';
 export default {
   components: {
-    Project
+    NavBar
   }
 }
 </script>
 
 <template>
-  <div class="container p-2">
+  <NavBar></NavBar>
+  <main>
 
-    <h1>PROGETTI</h1>
-    <Project></Project>
-  </div>
+    <router-view></router-view>
+
+  </main>
+  <footer>FOOTER</footer>
 </template>
 
 <style scoped></style>
