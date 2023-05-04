@@ -1,36 +1,47 @@
 <script>
 import Default from '../layouts/Default.vue';
 import axios from 'axios'
+
 export default {
     components: {
         Default
     },
-
+    data() {
+        return {
+            project: null
+        }
+    },
+    props: ['slug'],
     methods: {
-        fetchProjects() {
-            axios.get("http://127.0.0.1:8000/api/projects/${this.$route.params.slug}").then(res => {
-                console.log(res)
-            }).catch(err => {
-                console.log(err)
-            })
+        fetchProjects(slug) {
+            axios.get(`http://127.0.0.1:8000/api/projects/${slug}`)
+                .then(res => {
+                    const { success, project } = res.data
+                    console.log(res.data)
+                    if (success) {
+                        this.project = project
+                    }
+                }).catch(err => {
+                    console.log(err)
+                })
         }
     },
     created() {
-        this.fetchProjects()
+        this.fetchProjects(this.slug)
     },
-    mounted() {
 
-        console.log('slug:', this.$route.params.slug)
-    }
 }
 </script>
 <template>
     <Default>
+        <template v-if="project">
+            <div class="container">
+                <h1> {{ project.title }} </h1>
+                <p>{{ project.description }}</p>
+            </div>
+        </template>
 
-        <div class="container">
-            <h1>Titolo: </h1>
-            <h2>slug: {{ $route.params.slug }}</h2>
-        </div>
+
 
     </Default>
 </template>
