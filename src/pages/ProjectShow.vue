@@ -20,6 +20,7 @@ export default {
                     console.log(res.data)
                     if (success) {
                         this.project = project
+                        console.log(project)
                     }
                 }).catch(err => {
                     console.log(err)
@@ -36,8 +37,12 @@ export default {
     <Default>
         <template v-if="project">
             <div class="container">
-                <h1> {{ project.title }} </h1>
-                <p>{{ project.description }}</p>
+                <div class="card-body">
+                    <h5 class="card-title">Titolo: {{ project.title }}</h5>
+                    <p class="card-text">Descrizione: {{ project.description }}</p>
+                    <span class="list-group-item">Cliente: {{ project.client }}</span>
+                    <span class="list-group-item ">URL: {{ project.url }}</span>
+                </div>
             </div>
         </template>
 
