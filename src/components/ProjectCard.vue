@@ -24,22 +24,30 @@ export default {
 </script>
 <template>
     <div class="card col-3 m-3 ">
-        <div class="card-body">
-            <h5 class="card-title">Titolo: {{ project.title }}</h5>
-            <p class="card-text">Descrizione: {{ project.description }}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cliente: {{ project.client }}</li>
-            <li class="list-group-item ">URL: {{ project.url }}</li>
-            <li class="list-group-item">Tecnologie: <span class="badge text-bg-primary p-2 m-2"
-                    v-for="item in project.technologies" :key="item.id">{{
-                        item.name ?
-                        item.name : 'No' }},</span> </li>
-            <li class="list-group-item" v-if="project.type !== null"> Tipologia: <span class="badge text-bg-secondary">{{
-                project.type.name
-            }}</span> </li>
-            <li class="list-group-item" v-else="project.type == null"> Tipologia: Nessuna</li>
-        </ul>
+        <router-link :to="{ name: 'projects.show', params: { slug: project.slug } }">
+            <div class="card-body">
+                <h5 class="card-title">Titolo: {{ project.title }}</h5>
+                <p class="card-text">Descrizione: {{ project.description }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cliente: {{ project.client }}</li>
+                <li class="list-group-item ">URL: {{ project.url }}</li>
+                <li class="list-group-item">Tecnologie: <span class="badge text-bg-primary p-2 m-2"
+                        v-for="item in project.technologies" :key="item.id">{{
+                            item.name ?
+                            item.name : 'No' }},</span> </li>
+                <li class="list-group-item" v-if="project.type !== null"> Tipologia: <span
+                        class="badge text-bg-secondary">{{
+                            project.type.name
+                        }}</span> </li>
+                <li class="list-group-item" v-else="project.type == null"> Tipologia: Nessuna</li>
+            </ul>
+        </router-link>
     </div>
 </template>
-<style scoped></style>
+<style scoped>
+.card a {
+    color: black;
+    text-decoration: none;
+}
+</style>
